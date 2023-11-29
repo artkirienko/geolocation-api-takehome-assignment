@@ -37,5 +37,11 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # RuboCop is a Ruby static code analyzer (a.k.a. linter) and code formatter
+  gem "rubocop", "~> 1.57", require: false
+  gem "rubocop-rails", "~> 2.22", require: false
+  gem "rubocop-rspec", "~> 2.25", require: false
+  gem "rubocop-performance", "~> 1.19", require: false
 end
 
