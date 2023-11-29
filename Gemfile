@@ -32,6 +32,14 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+
+  # RSpec
+  gem "rspec", "~> 3.12"
+  gem "rspec-core", "~> 3.12"
+  gem "rspec-expectations", "~> 3.12"
+  gem "rspec-mocks", "~> 3.12"
+  gem "rspec-rails", "~> 6.1"
+  gem "rspec-support", "~> 3.12"
 end
 
 group :development do
