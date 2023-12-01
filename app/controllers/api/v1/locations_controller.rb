@@ -7,33 +7,33 @@ module Api
 
       # GET /api/v1/locations
       def index
-        @locations = Location.all
-
-        render json: @locations
+        jsonapi_paginate(Location.all) do |paginated|
+          render jsonapi: paginated
+        end
       end
 
       # GET /api/v1/locations/1
       def show
-        render json: @location
+        render jsonapi: @location
       end
 
       # POST /api/v1/locations
       def create
-        @location = Location.new(location_params)
+        @location = Location.new(jsonapi_deserialize(location_params, only: [:ip]))
 
         if @location.save
-          render json: @location, status: :created, location: api_v1_location_url(@location)
+          render jsonapi: @location, status: :created, location: api_v1_location_url(@location)
         else
-          render json: @location.errors, status: :unprocessable_entity
+          render jsonapi_errors: @location.errors, status: :unprocessable_entity
         end
       end
 
       # PATCH/PUT /api/v1/locations/1
       def update
-        if @location.update(location_params)
-          render json: @location
+        if @location.update(jsonapi_deserialize(location_params, only: [:ip]))
+          render jsonapi: @location
         else
-          render json: @location.errors, status: :unprocessable_entity
+          render jsonapi_errors: @location.errors, status: :unprocessable_entity
         end
       end
 
@@ -51,8 +51,7 @@ module Api
 
       # Only allow a list of trusted parameters through.
       def location_params
-        params.require(:location).permit(:latitude, :longitude, :address, :city, :state, :state_code,
-                                         :postal_code, :country, :country_code, :ip, :raw_data)
+        { data: params.require(:data).permit(:type, attributes: :ip) }
       end
     end
   end

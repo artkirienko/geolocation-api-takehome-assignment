@@ -32,6 +32,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem "jsonapi-serializer", "~> 2.2"
+gem "jsonapi.rb", "~> 2.0"
 gem "oj", "~> 3.16"
 
 gem "geocoder", "~> 1.8"

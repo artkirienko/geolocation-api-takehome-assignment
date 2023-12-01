@@ -104,6 +104,9 @@ GEM
     json (2.6.3)
     jsonapi-serializer (2.2.0)
       activesupport (>= 4.2)
+    jsonapi.rb (2.0.1)
+      jsonapi-serializer
+      rack
     language_server-protocol (3.17.0.3)
     loofah (2.22.0)
       crass (~> 1.0.2)
@@ -263,6 +266,7 @@ DEPENDENCIES
   debug
   geocoder (~> 1.8)
   jsonapi-serializer (~> 2.2)
+  jsonapi.rb (~> 2.0)
   oj (~> 3.16)
   pg (~> 1.1)
   puma (>= 5.0)
