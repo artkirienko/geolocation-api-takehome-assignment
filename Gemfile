@@ -32,6 +32,8 @@ gem "bootsnap", require: false
 gem "jsonapi-serializer", "~> 2.2"
 gem "oj", "~> 3.16"
 
+gem "geocoder", "~> 1.8"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
@@ -55,4 +57,3 @@ group :development do
   gem "rubocop-rspec", "~> 2.25", require: false
   gem "rubocop-performance", "~> 1.19", require: false
 end
-
