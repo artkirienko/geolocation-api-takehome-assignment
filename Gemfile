@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 ruby "3.2.2"
@@ -45,6 +47,7 @@ group :development, :test do
   gem "rspec-mocks", "~> 3.12"
   gem "rspec-rails", "~> 6.1"
   gem "rspec-support", "~> 3.12"
+  gem "shoulda-matchers", "~> 5.3"
 end
 
 group :development do
