@@ -18,4 +18,5 @@ class Location < ApplicationRecord
 
   after_validation :geocode
   validates :ip, presence: true, uniqueness: true
+  validates_with IpValidator
 end
