@@ -41,6 +41,8 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 
+  gem "factory_bot_rails", "~> 6.4"
+
   # RSpec
   gem "rspec", "~> 3.12"
   gem "rspec-core", "~> 3.12"
@@ -60,4 +62,9 @@ group :development do
   gem "rubocop-rails", "~> 2.22", require: false
   gem "rubocop-rspec", "~> 2.25", require: false
   gem "rubocop-performance", "~> 1.19", require: false
+end
+
+group :test do
+  gem "vcr", "~> 6.2"
+  gem "webmock", "~> 3.19"
 end
