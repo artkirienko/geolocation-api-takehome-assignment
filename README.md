@@ -2,6 +2,16 @@
 
 Need to write a simple API backed by any kind of database. The application should be able to store geolocation data in the database, based on IP address or URL. You can use [ipstack.com](https://ipstack.com/) as a service provider for geolocation data. The API should be able to add, delete or provide geolocation data on the base of ip address or URL.
 
+### Requirements
+
+Ruby 3.2.2, PostgreSQL 14.10, Redis 7.2.3 or **Docker**
+
+### Run with Docker
+
+```bash
+docker-compose up
+```
+
 ### Application specification:
 
 - It should be a RESTful API

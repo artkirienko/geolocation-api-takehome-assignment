@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: geolocation_api_production
-  username: geolocation_api
-  password: <%= ENV["GEOLOCATION_API_DATABASE_PASSWORD"] %>
+  url: <%= ENV["GEOLOCATION_API_DATABASE_URL"] %>
