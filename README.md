@@ -27,6 +27,12 @@ docker-compose up
 - Pay special attention to handling errors and edge cases. We will test the behavior of the system under various “unfortunate” conditions.
 - We will run the application on our local machines for testing purposes. This implies that the solution should provide a quick and easy way to get the system up and running, including test data (hint: you can add Docker support so we can run it easily)
 
+### References
+
+[FAANG System Design Interview: Design A Location Based Service (Yelp, Google Places)](https://www.youtube.com/watch?v=M4lR_Va97cQ)
+
+[PostGIS vs. Geocoder in Rails](https://pganalyze.com/blog/postgis-rails-geocoder)
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
