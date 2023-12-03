@@ -12,6 +12,12 @@ Ruby 3.2.2, PostgreSQL 14.10, Redis 7.2.3 or **Docker**
 docker-compose up
 ```
 
+### Run test suite
+
+```bash
+bundle exec rspec
+```
+
 ### Application specification:
 
 - It should be a RESTful API
@@ -33,25 +39,14 @@ docker-compose up
 
 [PostGIS vs. Geocoder in Rails](https://pganalyze.com/blog/postgis-rails-geocoder)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### TODO
 
-Things you may want to cover:
-
-- Ruby version
-
-- System dependencies
-
-- Configuration
-
-- Database creation
-
-- Database initialization
-
-- How to run the test suite
-
-- Services (job queues, cache servers, search engines, etc.)
-
-- Deployment instructions
-
-- ...
+- Add assumptions section to the README
+- Provide requests/responses examples
+- Query URL with [GeoIP Gem]https://github.com/cjheath/geoip
+- Use [JSONAPI::Resources Gem](https://jsonapi-resources.com/) instead of [jsonapi-serializer](https://github.com/jsonapi-serializer/jsonapi-serializer) and [jsonapi.rb](https://github.com/stas/jsonapi.rb)
+- Add JWT authentication
+- Use Redis for caching
+- Add [rack-attack](https://github.com/rack/rack-attack) rack middleware for blocking & throttling abusive requests
+- Add code documentation with [yard](https://github.com/lsegal/yard)
+- Add PostGIS if fast nearby locations search needed
