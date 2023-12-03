@@ -15,36 +15,58 @@ require "rails_helper"
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/api/v1/locations", type: :request do
-  # This should return the minimal set of attributes required to create a valid
-  # Location. As you add validations to Location, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) do
-    skip("Add a hash of attributes valid for your model")
-  end
-
-  let(:invalid_attributes) do
-    skip("Add a hash of attributes invalid for your model")
-  end
-
   # This should return the minimal set of values that should be in the headers
   # in order to pass any filters (e.g. authentication) defined in
   # Api::V1::LocationsController, or in your router and rack
   # middleware. Be sure to keep this updated too.
   let(:valid_headers) do
-    {}
+    { "Content-Type" => "application/vnd.api+json" }
+  end
+
+  let(:valid_jsonapi_create_params) do
+    {
+      "data": {
+        "type": "locations",
+        "attributes": {
+          "ip": "207.244.71.78"
+        }
+      }
+    }
+  end
+
+  let(:invalid_jsonapi_create_params) do
+    {
+      "data": {
+        "type": "locations",
+        "attributes": {
+          "ip": ""
+        }
+      }
+    }
+  end
+
+  let(:valid_jsonapi_update_params) do
+    {
+      "data": {
+        "type": "locations",
+        "attributes": {
+          "ip": "94.75.206.226"
+        }
+      }
+    }
   end
 
   describe "GET /index" do
-    it "renders a successful response" do
-      Location.create! valid_attributes
+    it "renders a successful response", vcr: "ipinfo-io-207-244-71-78" do
+      FactoryBot.create(:location)
       get api_v1_locations_url, headers: valid_headers, as: :json
       expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
-    it "renders a successful response" do
-      location = Location.create! valid_attributes
+    it "renders a successful response", vcr: "ipinfo-io-207-244-71-78" do
+      location = FactoryBot.create(:location)
       get api_v1_location_url(location), as: :json
       expect(response).to be_successful
     end
@@ -52,34 +74,34 @@ RSpec.describe "/api/v1/locations", type: :request do
 
   describe "POST /create" do
     context "with valid parameters" do
-      it "creates a new Location" do
+      it "creates a new Location", vcr: "ipinfo-io-207-244-71-78" do
         expect do
           post api_v1_locations_url,
-               params: { api_v1_location: valid_attributes }, headers: valid_headers, as: :json
+               params: valid_jsonapi_create_params, headers: valid_headers, as: :json
         end.to change(Location, :count).by(1)
       end
 
-      it "renders a JSON response with the new api_v1_location" do
+      it "renders a JSON response with the new api_v1_location", vcr: "ipinfo-io-207-244-71-78" do
         post api_v1_locations_url,
-             params: { api_v1_location: valid_attributes }, headers: valid_headers, as: :json
+             params: valid_jsonapi_create_params, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to match(a_string_including("application/json"))
+        expect(response.content_type).to match(a_string_including("application/vnd.api+json"))
       end
     end
 
     context "with invalid parameters" do
-      it "does not create a new Location" do
+      it "does not create a new Location", vcr: "suka" do
         expect do
           post api_v1_locations_url,
-               params: { api_v1_location: invalid_attributes }, as: :json
+               params: invalid_jsonapi_create_params, headers: valid_headers, as: :json
         end.to change(Location, :count).by(0)
       end
 
       it "renders a JSON response with errors for the new api_v1_location" do
         post api_v1_locations_url,
-             params: { api_v1_location: invalid_attributes }, headers: valid_headers, as: :json
+             params: invalid_jsonapi_create_params, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
+        expect(response.content_type).to match(a_string_including("application/vnd.api+json"))
       end
     end
   end
@@ -90,37 +112,37 @@ RSpec.describe "/api/v1/locations", type: :request do
         skip("Add a hash of attributes valid for your model")
       end
 
-      it "updates the requested api_v1_location" do
-        location = Location.create! valid_attributes
+      it "updates the requested api_v1_location", vcr: "ipinfo-io-207-244-71-78-94-75-206-226" do
+        location = FactoryBot.create(:location)
         patch api_v1_location_url(location),
-              params: { api_v1_location: new_attributes }, headers: valid_headers, as: :json
+              params: valid_jsonapi_update_params, headers: valid_headers, as: :json
         location.reload
-        skip("Add assertions for updated state")
+        expect(location.ip).to eq("94.75.206.226")
       end
 
-      it "renders a JSON response with the api_v1_location" do
-        location = Location.create! valid_attributes
+      it "renders a JSON response with the api_v1_location", vcr: "ipinfo-io-207-244-71-78-94-75-206-226" do
+        location = FactoryBot.create(:location)
         patch api_v1_location_url(location),
-              params: { api_v1_location: new_attributes }, headers: valid_headers, as: :json
+              params: valid_jsonapi_update_params, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including("application/json"))
+        expect(response.content_type).to match(a_string_including("application/vnd.api+json"))
       end
     end
 
     context "with invalid parameters" do
-      it "renders a JSON response with errors for the api_v1_location" do
-        location = Location.create! valid_attributes
+      it "renders a JSON response with errors for the api_v1_location", vcr: "ipinfo-io-207-244-71-78" do
+        location = FactoryBot.create(:location)
         patch api_v1_location_url(location),
-              params: { api_v1_location: invalid_attributes }, headers: valid_headers, as: :json
+              params: invalid_jsonapi_create_params, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to match(a_string_including("application/json"))
+        expect(response.content_type).to match(a_string_including("application/vnd.api+json"))
       end
     end
   end
 
   describe "DELETE /destroy" do
-    it "destroys the requested api_v1_location" do
-      location = Location.create! valid_attributes
+    it "destroys the requested api_v1_location", vcr: "ipinfo-io-207-244-71-78" do
+      location = FactoryBot.create(:location)
       expect do
         delete api_v1_location_url(location), headers: valid_headers, as: :json
       end.to change(Location, :count).by(-1)
