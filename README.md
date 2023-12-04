@@ -18,6 +18,29 @@ docker-compose up
 bundle exec rspec
 ```
 
+## !Important
+
+### My assumptions
+
+My assumptions are as follows regarding the user story for this service:
+
+- user creates a location record via our API by providing an IP address
+- a record is enriched with geolocation data if available for this IP address
+- user can retrieve information for a single location from our API by providing the location ID
+- user can read all location records from our API by iterating through pagination
+- user can update a location record via our API by providing a new IP address and location ID
+- user can delete a single location from our API by providing the location ID
+
+I assume that the service is not write-intensivve, but is read-intensive. The strategy to manage the read load includes:
+
+- Implementation of proper indexes as we use PostgreSQL database
+- Adoption of pagination to prevent resource-intensive queries that fetch all records, followed by serialization and JSON response generation
+- Integration of caching using Redis
+- Implementation of endpoint security to ensure that only verified users can access our API
+- Utilization of the [rack-attack](https://github.com/rack/rack-attack) rack middleware to block and throttle abusive requests
+- Incorporation of load balancing measures during deployment to production
+- Deployment of read-only replicas of the database in a production environment
+
 ### Application specification:
 
 - It should be a RESTful API
@@ -41,7 +64,7 @@ bundle exec rspec
 
 ### TODO
 
-- Add assumptions section to the README
+- Add seed data
 - Provide requests/responses examples
 - Query URL with [GeoIP Gem]https://github.com/cjheath/geoip
 - Use [JSONAPI::Resources Gem](https://jsonapi-resources.com/) instead of [jsonapi-serializer](https://github.com/jsonapi-serializer/jsonapi-serializer) and [jsonapi.rb](https://github.com/stas/jsonapi.rb)
