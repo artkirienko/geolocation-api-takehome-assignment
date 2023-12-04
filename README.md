@@ -41,6 +41,53 @@ I assume that the service is not write-intensivve, but is read-intensive. The st
 - Incorporation of load balancing measures during deployment to production
 - Deployment of read-only replicas of the database in a production environment
 
+### Requests examples
+
+- List all locations paginated
+  ```bash
+  curl --location 'http://localhost:3000/api/v1/locations/'
+  ```
+- Iterate through paginated list of all locations
+  ```bash
+  curl --location 'http://localhost:3000/api/v1/locations?page[number]=2'
+  ```
+- Show single location by id
+  ```bash
+  curl --location 'http://localhost:3000/api/v1/locations/1'
+  ```
+- Create a location using IP address
+  ```bash
+  curl --location 'http://localhost:3000/api/v1/locations' \
+  --header 'Content-Type: application/vnd.api+json' \
+  --header 'Accept: application/vnd.api+json' \
+  --data '{
+    "data": {
+      "type": "locations",
+      "attributes": {
+        "ip": "173.13.2.11"
+      }
+    }
+  }'
+  ```
+  - Update a location using id and new IP address
+  ```bash
+  curl --location --request PATCH 'http://localhost:3000/api/v1/locations/5' \
+  --header 'Content-Type: application/vnd.api+json' \
+  --header 'Accept: application/vnd.api+json' \
+  --data '{
+    "data": {
+      "type": "locations",
+      "attributes": {
+        "ip": "172.56.10.74"
+      }
+    }
+  }'
+  ```
+  - Delete a location by id
+  ```bash
+  curl --location --request DELETE 'http://localhost:3000/api/v1/locations/7'
+  ```
+
 ### Application specification:
 
 - It should be a RESTful API
@@ -64,7 +111,6 @@ I assume that the service is not write-intensivve, but is read-intensive. The st
 
 ### TODO
 
-- Provide requests/responses examples
 - Query URL with [GeoIP Gem](https://github.com/cjheath/geoip)
 - Use [JSONAPI::Resources Gem](https://jsonapi-resources.com/) instead of [jsonapi-serializer](https://github.com/jsonapi-serializer/jsonapi-serializer) and [jsonapi.rb](https://github.com/stas/jsonapi.rb)
 - Add JWT authentication
