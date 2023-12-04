@@ -37,7 +37,7 @@ docker-compose up
 ### Run test suite
 
 ```bash
-bundle exec rspec
+docker-compose exec -e RAILS_ENV=test rails bundle exec rspec
 ```
 
 ## !Important

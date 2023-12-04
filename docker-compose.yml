@@ -34,7 +34,9 @@ services:
     tty: true
     stdin_open: true
     environment:
-      - GEOLOCATION_API_DATABASE_URL="postgres://postgres:password@postgres/geolocation_api_production"
+      - DATABASE_HOST="postgres"
+      - DATABASE_USERNAME="postgres"
+      - DATABASE_PASSWORD="password"
 
 volumes:
   bundle:

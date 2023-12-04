@@ -18,6 +18,9 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV["DATABASE_HOST"].presence %>
+  username: <%= ENV["DATABASE_USERNAME"].presence %>
+  password: <%= ENV["DATABASE_PASSWORD"].presence %>
 
 development:
   <<: *default
@@ -79,4 +82,4 @@ test:
 #
 production:
   <<: *default
-  url: <%= ENV["GEOLOCATION_API_DATABASE_URL"] %>
+  database: geolocation_api_production
