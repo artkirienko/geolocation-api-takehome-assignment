@@ -7,7 +7,7 @@
 
 # Testing Task - Ruby API - Geolocation with external integration
 
-Need to write a simple API backed by any kind of database. The application should be able to store geolocation data in the database, based on IP address or URL. You can use [ipstack.com](https://ipstack.com/) as a service provider for geolocation data. The API should be able to add, delete or provide geolocation data on the base of ip address or URL.
+Need to write a simple API backed by any kind of database. The application should be able to store geolocation data in the database, based on IP address or URL. You can use [ipstack.com](https://ipstack.com/) as a service provider for geolocation data. The API should be able to add, delete or provide geolocation data on the base of ip address or URL. [Original document](./docs/RoR%20Test%20Task.pdf)
 
 ### Application specification:
 
