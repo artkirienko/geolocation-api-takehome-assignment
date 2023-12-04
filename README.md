@@ -1,5 +1,7 @@
-[![codecov](https://codecov.io/gh/artkirienko/geolocation-api-takehome-assignment/branch/main/graph/badge.svg)](https://codecov.io/gh/artkirienko/geolocation-api-takehome-assignment)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/artkirienko/geolocation-api-takehome-assignment/issues)
+[![Ruby on Rails CI](https://github.com/artkirienko/geolocation-api-takehome-assignment/actions/workflows/rubyonrails.yml/badge.svg)](https://github.com/artkirienko/geolocation-api-takehome-assignment/actions/workflows/rubyonrails.yml)
+[![codecov](https://codecov.io/gh/artkirienko/geolocation-api-takehome-assignment/branch/main/graph/badge.svg)](https://codecov.io/gh/artkirienko/geolocation-api-takehome-assignment)
+[![Maintainability](https://api.codeclimate.com/v1/badges/dd4afc9ff1e4fd70f753/maintainability)](https://codeclimate.com/github/artkirienko/geolocation-api-takehome-assignment/maintainability)
 [![SLOC](https://sloc.xyz/github/artkirienko/geolocation-api-takehome-assignment)](https://en.wikipedia.org/wiki/Source_lines_of_code)
 [![Hits-of-Code](https://hitsofcode.com/github/artkirienko/geolocation-api-takehome-assignment?branch=main)](https://hitsofcode.com/github/artkirienko/geolocation-api-takehome-assignment/view?branch=main)
 
