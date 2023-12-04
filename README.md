@@ -69,7 +69,7 @@ I assume that the service is not write-intensivve, but is read-intensive. The st
     }
   }'
   ```
-  - Update a location using id and new IP address
+- Update a location using id and new IP address
   ```bash
   curl --location --request PATCH 'http://localhost:3000/api/v1/locations/5' \
   --header 'Content-Type: application/vnd.api+json' \
@@ -83,7 +83,7 @@ I assume that the service is not write-intensivve, but is read-intensive. The st
     }
   }'
   ```
-  - Delete a location by id
+- Delete a location by id
   ```bash
   curl --location --request DELETE 'http://localhost:3000/api/v1/locations/7'
   ```
