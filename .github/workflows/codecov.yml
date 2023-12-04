@@ -1,5 +1,7 @@
 name: Upload coverage reports to Codecov
 
+on: [push]
+
 uses: codecov/codecov-action@v3
 
 env:
