@@ -64,7 +64,6 @@ I assume that the service is not write-intensivve, but is read-intensive. The st
 
 ### TODO
 
-- Add seed data
 - Provide requests/responses examples
 - Query URL with [GeoIP Gem]https://github.com/cjheath/geoip
 - Use [JSONAPI::Resources Gem](https://jsonapi-resources.com/) instead of [jsonapi-serializer](https://github.com/jsonapi-serializer/jsonapi-serializer) and [jsonapi.rb](https://github.com/stas/jsonapi.rb)
