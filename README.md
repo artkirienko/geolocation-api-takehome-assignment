@@ -1,3 +1,7 @@
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/artkirienko/geolocation-api-takehome-assignment/issues)
+[![SLOC](https://sloc.xyz/github/artkirienko/geolocation-api-takehome-assignment)](https://en.wikipedia.org/wiki/Source_lines_of_code)
+[![Hits-of-Code](https://hitsofcode.com/github/artkirienko/geolocation-api-takehome-assignment?branch=main)](https://hitsofcode.com/github/artkirienko/geolocation-api-takehome-assignment/view?branch=main)
+
 # Testing Task - Ruby API - Geolocation with external integration
 
 Need to write a simple API backed by any kind of database. The application should be able to store geolocation data in the database, based on IP address or URL. You can use [ipstack.com](https://ipstack.com/) as a service provider for geolocation data. The API should be able to add, delete or provide geolocation data on the base of ip address or URL.
