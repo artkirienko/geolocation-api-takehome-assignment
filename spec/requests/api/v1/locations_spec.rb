@@ -108,10 +108,6 @@ RSpec.describe "/api/v1/locations", type: :request do
 
   describe "PATCH /update" do
     context "with valid parameters" do
-      let(:new_attributes) do
-        skip("Add a hash of attributes valid for your model")
-      end
-
       it "updates the requested api_v1_location", vcr: "ipinfo-io-207-244-71-78-94-75-206-226" do
         location = FactoryBot.create(:location)
         patch api_v1_location_url(location),
